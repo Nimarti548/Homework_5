@@ -12,22 +12,22 @@ $(document).ready(function(){
         const timeCheck = window.localStorage.getItem(time)
         const currentHour = moment().hour()
 
+        // console.log(currentHour)
+
+        
         if(currentHour > time){
             $(`#${time}`).addClass("bg-secondary text-light")
-            $(`#${time}`).attr("disabled", true)
+            // $(`#${time}`).attr("disabled", true) // optional if you do not what to be able to change past hours.
         } else if (currentHour === time){
             $(`#${time}`).addClass("bg-danger text-light")
-            
         } else {
             $(`#${time}`).addClass("bg-success text-light")
-            
         }
         
         if(timeCheck === null){
             window.localStorage.setItem(time, "")
         } else if (timeCheck.length > 0){
             $(`#${time}`).attr("value", window.localStorage.getItem(time))
-            
         }
     })
 
